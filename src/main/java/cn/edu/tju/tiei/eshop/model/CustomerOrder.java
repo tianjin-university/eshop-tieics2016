@@ -1,7 +1,7 @@
 package cn.edu.tju.tiei.eshop.model;
 
 /**
- * Created by tevenfeng on 17-8-1.
+ * Created by Feng Dingwen(2016229064) on 17-8-1.
  */
 public class CustomerOrder {
     private String customerName;

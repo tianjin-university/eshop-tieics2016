@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Created by tevenfeng on 17-8-2.
+ * Created by Feng Dingwen(2016229064) on 17-8-2.
  */
 public interface CustomerOrderMapper {
     List<CustomerOrder> getOrderOfCustomer(@Param("userName") String username);
