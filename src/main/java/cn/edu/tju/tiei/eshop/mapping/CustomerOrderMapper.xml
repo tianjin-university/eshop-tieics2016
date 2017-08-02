@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.tju.tiei.eshop.dao.CustomerOrderMapper">
+    <resultMap id="CustomerOrderResultMap" type="cn.edu.tju.tiei.eshop.model.CustomerOrder">
+        <id column="customer_name" property="customerName"/>
+        <result column="order_status" property="orderStatus"/>
+        <result column="payment_method" property="paymentMethod"/>
+        <result column="send_method" property="sendMethod"/>
+        <result column="price" property="price"/>
+        <result column="place_time" property="placeTime"/>
+        <result column="send_time" property="sendTime"/>
+        <result column="invoice_item" property="invoiceItem"/>
+        <result column="invoice_title" property="invoiceTitle"/>
+    </resultMap>
+    <select id="getOrderOfCustomer" parameterType="String" resultMap="CustomerOrderResultMap">
+        select customer.username as customer_name,
+               order_status.name as order_status,
+               `order`.price,
+               payment_method.name as payment_method,
+               send_method.name as send_method,
+               `order`.place_time,
+               `order`.send_time,
+               `order`.invoice_item,
+               `order`.invoice_title
+        from customer, `order`, order_status, payment_method, send_method
+        where
+            customer.username=#{userName}
+            and customer.username=`order`.customer_id
+            and `order`.status_id=order_status.id
+            and payment_method.id=`order`.payment_method_id
+            and send_method.id=`order`.send_method_id
+    </select>
+</mapper>
