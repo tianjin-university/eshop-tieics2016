@@ -5,7 +5,8 @@
 
 <mapper namespace="cn.edu.tju.tiei.eshop.dao.CustomerOrderMapper">
     <resultMap id="CustomerOrderResultMap" type="cn.edu.tju.tiei.eshop.model.CustomerOrder">
-        <id column="customer_name" property="customerName"/>
+        <result column="order_id" property="orderId"/>
+        <result column="customer_name" property="customerName"/>
         <result column="order_status" property="orderStatus"/>
         <result column="payment_method" property="paymentMethod"/>
         <result column="send_method" property="sendMethod"/>
@@ -16,7 +17,8 @@
         <result column="invoice_title" property="invoiceTitle"/>
     </resultMap>
     <select id="getOrderOfCustomer" parameterType="String" resultMap="CustomerOrderResultMap">
-        select customer.username as customer_name,
+        select `order`.id as order_id,
+               customer.username as customer_name,
                order_status.name as order_status,
                `order`.price,
                payment_method.name as payment_method,

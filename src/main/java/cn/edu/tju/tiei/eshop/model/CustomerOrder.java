@@ -4,6 +4,9 @@ package cn.edu.tju.tiei.eshop.model;
  * Created by Feng Dingwen(2016229064) on 17-8-1.
  */
 public class CustomerOrder {
+
+    private long orderId;
+
     private String customerName;
 
     private String orderStatus;
@@ -21,6 +24,14 @@ public class CustomerOrder {
     private String invoiceItem;
 
     private String invoiceTitle;
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
 
     public String getCustomerName() {
         return customerName;
