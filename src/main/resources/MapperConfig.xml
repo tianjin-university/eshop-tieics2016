@@ -16,5 +16,6 @@
   </environments>
   <mappers>
     <mapper resource="cn/edu/tju/tiei/eshop/mapping/RankMapper.xml"/>
+    <mapper resource="cn/edu/tju/tiei/eshop/mapping/CustomerOrderMapper.xml"/>
   </mappers>
 </configuration>
