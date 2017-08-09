@@ -33,5 +33,7 @@
         </table>
         <table tableName="customer">
         </table>
+        <table tableName="orders">
+        </table>
     </context>
 </generatorConfiguration>
