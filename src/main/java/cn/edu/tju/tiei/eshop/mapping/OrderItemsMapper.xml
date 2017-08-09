@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="cn.edu.tju.tiei.eshop.dao.OrderItemsMapper">
+<resultMap id="OrderItemsResultMap" type="cn.edu.tju.tiei.eshop.model.OrderItems">
+    <result column="item_id" property="id"/>
+    <result column="order_id" property="orderId"/>
+    <result column="product_id" property="productId"/>
+    <result column="product_name" property="productName"/>
+    <result column="count" property="productCount"/>
+    <result column="price" property="productPrice"/>
+</resultMap>
+<select id="getItemsOfOrder" parameterType="long" resultMap="OrderItemsResultMap">
+   select  item.id as item_id,
+            `orders`.id  as order_id,
+            product.id as product_id,
+            product.name as product_name,
+            item.count,
+            item.price
+    from    item, `orders`,product
+    where
+            `orders`.id=#{orderId}
+        and item.product_id=product.id
+</select>
+</mapper>
