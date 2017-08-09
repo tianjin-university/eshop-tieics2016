@@ -244,7 +244,7 @@ SELECT * FROM send_method;
 -- Order table
 -- ----------------------------------------
 
-CREATE TABLE `order`
+CREATE TABLE `orders`
 (
 	id					INT				AUTO_INCREMENT,
 	customer_id			VARCHAR(20)		NOT NULL,
@@ -263,10 +263,10 @@ CREATE TABLE `order`
 	CONSTRAINT order_send_method_fk FOREIGN KEY(send_method_id) REFERENCES send_method(id)
 );
 
-INSERT INTO `order` VALUES (0, 'zhangsan',
+INSERT INTO `orders` VALUES (0, 'zhangsan',
 	2, 1443.99, 1, 1, CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 DAY), 'Tianjin University', 'electronic products');
 
-SELECT * FROM `order`;
+SELECT * FROM `orders`;
 
 -- ----------------------------------------
 -- Item table
@@ -280,7 +280,7 @@ CREATE TABLE item
 	`count`			INT					DEFAULT 1		NOT NULL,
 	price			NUMERIC(10, 2)		NOT NULL,
 	CONSTRAINT item_pk PRIMARY KEY(id),
-	CONSTRAINT item_order_fk FOREIGN KEY(order_id) REFERENCES `order`(id),
+	CONSTRAINT item_order_fk FOREIGN KEY(order_id) REFERENCES `orders`(id),
 	CONSTRAINT item_product_fk FOREIGN KEY(product_id) REFERENCES product(id)
 );
 
