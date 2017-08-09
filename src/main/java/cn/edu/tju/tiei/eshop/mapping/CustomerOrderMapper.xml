@@ -17,22 +17,22 @@
         <result column="invoice_title" property="invoiceTitle"/>
     </resultMap>
     <select id="getOrderOfCustomer" parameterType="String" resultMap="CustomerOrderResultMap">
-        select `order`.id as order_id,
+        select `orders`.id as order_id,
                customer.username as customer_name,
                order_status.name as order_status,
-               `order`.price,
+               `orders`.price,
                payment_method.name as payment_method,
                send_method.name as send_method,
-               `order`.place_time,
-               `order`.send_time,
-               `order`.invoice_item,
-               `order`.invoice_title
-        from customer, `order`, order_status, payment_method, send_method
+               `orders`.place_time,
+               `orders`.send_time,
+               `orders`.invoice_item,
+               `orders`.invoice_title
+        from customer, `orders`, order_status, payment_method, send_method
         where
             customer.username=#{userName}
-            and customer.username=`order`.customer_id
-            and `order`.status_id=order_status.id
-            and payment_method.id=`order`.payment_method_id
-            and send_method.id=`order`.send_method_id
+            and customer.username=`orders`.customer_id
+            and `orders`.status_id=order_status.id
+            and payment_method.id=`orders`.payment_method_id
+            and send_method.id=`orders`.send_method_id
     </select>
 </mapper>
