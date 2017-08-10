@@ -25,10 +25,10 @@ public class OrderItemsRestController {
      */
     @RequestMapping(value = "/orderItems/{orderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderItems>> get(@PathVariable("orderId") long orderid) {
-        List<OrderItems> customerOrderList = orderItemsService.getItemsOfOrder(orderid);
-        if (customerOrderList.isEmpty()) {
+        List<OrderItems> orderItemsList = orderItemsService.getItemsOfOrder(orderid);
+        if (orderItemsList.isEmpty()) {
             return new ResponseEntity<List<OrderItems>>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<List<OrderItems>>(customerOrderList, HttpStatus.OK);
+        return new ResponseEntity<List<OrderItems>>(orderItemsList, HttpStatus.OK);
     }
 }

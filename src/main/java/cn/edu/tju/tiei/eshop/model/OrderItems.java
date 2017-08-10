@@ -2,7 +2,7 @@ package cn.edu.tju.tiei.eshop.model;
 
 public class OrderItems {
 
-    private long id;
+    private long itemId;
 
     private long orderId;
 
@@ -15,11 +15,11 @@ public class OrderItems {
     private double productPrice;
 
     public long getId() {
-        return id;
+        return itemId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long itemId) {
+        this.itemId = itemId;
     }
 
     public long getOrderId() {
