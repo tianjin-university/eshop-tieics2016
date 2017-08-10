@@ -263,7 +263,7 @@ CREATE TABLE `orders`
 	CONSTRAINT order_send_method_fk FOREIGN KEY(send_method_id) REFERENCES send_method(id)
 );
 
-INSERT INTO `orders` VALUES (1, 'zhangsan',
+INSERT INTO `orders` VALUES (0, 'zhangsan',
 	2, 1443.99, 1, 1, CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 DAY), 'Tianjin University', 'electronic products');
 
 SELECT * FROM `orders`;
