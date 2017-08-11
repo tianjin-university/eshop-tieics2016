@@ -31,7 +31,9 @@
         <!-- database tables -->
         <table tableName="rank">
         </table>
-        <table tableName="customer">
+        <table tableName="order">
+        </table>
+        <table tableName="order_status">
         </table>
     </context>
 </generatorConfiguration>
