@@ -33,5 +33,7 @@
         </table>
         <table tableName="order">
         </table>
+        <table tableName="order_status">
+        </table>
     </context>
 </generatorConfiguration>
