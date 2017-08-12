@@ -31,7 +31,7 @@
         <!-- database tables -->
         <table tableName="rank">
         </table>
-        <table tableName="orders">
+        <table tableName="order">
         </table>
         <table tableName="order_status">
         </table>
