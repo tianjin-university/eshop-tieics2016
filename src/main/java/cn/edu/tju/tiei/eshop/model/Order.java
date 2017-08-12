@@ -2,7 +2,7 @@ package cn.edu.tju.tiei.eshop.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Order implements Serializable {
     /**
@@ -66,7 +66,7 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    private java.sql.Timestamp placeTime;
+    private Date placeTime;
 
     /**
      *
@@ -75,7 +75,7 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    private java.sql.Timestamp sendTime;
+    private Date sendTime;
 
     /**
      *
@@ -255,8 +255,8 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    public String getPlaceTime() {
-        return placeTime.toString();
+    public Date getPlaceTime() {
+        return placeTime;
     }
 
     /**
@@ -267,8 +267,8 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    public void setPlaceTime(String placeTime) {
-        this.placeTime = Timestamp.valueOf(placeTime);
+    public void setPlaceTime(Date placeTime) {
+        this.placeTime = placeTime;
     }
 
     /**
@@ -279,8 +279,8 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    public String getSendTime() {
-        return sendTime.toString();
+    public Date getSendTime() {
+        return sendTime;
     }
 
     /**
@@ -291,8 +291,8 @@ public class Order implements Serializable {
      *
      * @mbg.generated
      */
-    public void setSendTime(String sendTime) {
-        this.sendTime = Timestamp.valueOf(sendTime);
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
     }
 
     /**
