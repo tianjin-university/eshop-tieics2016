@@ -92,7 +92,6 @@
     <if test="distinct">
       distinct
     </if>
-    'true' as QUERYID,
     <include refid="Base_Column_List" />
     from category
     <if test="_parameter != null">

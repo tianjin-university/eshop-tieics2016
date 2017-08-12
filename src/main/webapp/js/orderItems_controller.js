@@ -1,10 +1,3 @@
-<!--
-Created by IntelliJ IDEA.
-User: Liang Xing
-Date: 17-8-9
-Time: 下午7:27
-To change this template use File | Settings | File Templates.
--->
 'use strict';
 
 angular.module('myApp').controller(

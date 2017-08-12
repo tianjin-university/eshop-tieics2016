@@ -28,11 +28,11 @@ public class CategoryRestController {
     public ResponseEntity<List<Category>> listAll(){
         List<Category> categories = categoryService.findAll();
         if (categories.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<List<Category>>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+        return new ResponseEntity<List<Category>>(categories, HttpStatus.OK);
     }
-    
+      
     /**
      * Retrieve a single category
      * @param id
