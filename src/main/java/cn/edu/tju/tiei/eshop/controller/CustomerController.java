@@ -30,7 +30,7 @@ public class CustomerController {
 		 return new ResponseEntity<Customer>(result, HttpStatus.OK);
 		 }
 	
-	@RequestMapping(value = "/user/", method = RequestMethod.GET)
+	@RequestMapping(value = "/customer/", method = RequestMethod.GET)
 	    public ResponseEntity<List<Customer>> listAllUsers() {
 	        List<Customer> users = customerService.findAllUsers();
 	        if(users.isEmpty()){
