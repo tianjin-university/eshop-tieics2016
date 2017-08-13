@@ -37,6 +37,8 @@
         </table>
         <table tableName="category">
         </table>
+        <table tableName="send_method">
+        </table>
         <table tableName="payment_method">
         </table>
     </context>
