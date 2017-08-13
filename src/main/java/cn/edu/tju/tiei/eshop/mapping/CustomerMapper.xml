@@ -23,6 +23,77 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="zipcode" jdbcType="CHAR" property="zipcode" />
   </resultMap>
+
+<select id="getInfoByUsename" parameterType="String" resultMap="customerMap">
+    select * from customer where username=#{username};
+</select>
+
+<select id="findAllUsers" resultMap="usersListMap">
+    select * from customer;
+</select>
+
+<update id="updateByUsername" parameterType="map">
+    update customer
+    <set>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null">
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=CHAR},
+      </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.question != null">
+        question = #{record.question,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answer != null">
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rankId != null">
+        rank_id = #{record.rankId,jdbcType=TINYINT},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null">
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.county != null">
+        county = #{record.county,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zipcode != null">
+        zipcode = #{record.zipcode,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+
+  <delete id="deleteByUsername" parameterType="java.lang.String">
+    delete from customer
+    where username = #{username,jdbcType=VARCHAR}
+  </delete>
+
   <sql id="Example_Where_Clause">
     <!--
       WARNING - @mbg.generated
@@ -156,7 +227,7 @@
       zipcode)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{rankId,jdbcType=TINYINT}, #{score,jdbcType=INTEGER}, 
+      #{answer,jdbcType=VARCHAR},1, 0, 
       #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
       #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{zipcode,jdbcType=CHAR})
