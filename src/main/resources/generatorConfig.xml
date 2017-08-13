@@ -43,5 +43,7 @@
         </table>
         <table tableName="payment_method">
         </table>
+        <table tableName="item">
+        </table>
     </context>
 </generatorConfiguration>

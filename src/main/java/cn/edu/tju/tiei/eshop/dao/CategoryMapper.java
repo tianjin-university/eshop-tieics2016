@@ -1,11 +1,9 @@
 package cn.edu.tju.tiei.eshop.dao;
 
-
 import cn.edu.tju.tiei.eshop.model.Category;
 import cn.edu.tju.tiei.eshop.model.CategoryExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
     /**
