@@ -1,6 +1,5 @@
 package cn.edu.tju.tiei.eshop.service.impl;
 
-import cn.edu.tju.tiei.eshop.dao.OrderMapper;
 import cn.edu.tju.tiei.eshop.dao.ProductMapper;
 
 import cn.edu.tju.tiei.eshop.model.Product;
