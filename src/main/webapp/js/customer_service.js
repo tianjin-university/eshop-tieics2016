@@ -5,7 +5,7 @@ angular.module('myApp').factory('CustomerService', ['$http', '$q', function ($ht
     var REST_SERVICE_URI_CUSTOMER = 'http://localhost:8080/eshop/customer/';
 
     var factory = {
-    		fetchAllUsers: fetchAllUsers,
+        fetchAllUsers: fetchAllUsers,
         createUser: createUser,
         updateUser:updateUser,
         deleteUser:deleteUser
@@ -13,7 +13,7 @@ angular.module('myApp').factory('CustomerService', ['$http', '$q', function ($ht
     
     return factory;
 
-    function fetchAllCustomers(){
+    function fetchAllUsers(){
         var deferred = $q.defer();
         $http.get(REST_SERVICE_URI_CUSTOMER)
             .then(

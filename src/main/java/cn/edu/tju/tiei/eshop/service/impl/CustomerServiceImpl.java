@@ -5,12 +5,17 @@ import java.util.List;
 import cn.edu.tju.tiei.eshop.dao.CustomerMapper;
 import cn.edu.tju.tiei.eshop.model.Customer;
 import cn.edu.tju.tiei.eshop.service.ICustomerService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+@Service("customerService")
 public class CustomerServiceImpl implements ICustomerService{
+	@Resource
 	private CustomerMapper customerMapper;
 	
 	public Customer getInfoByUsername(String username) {
-		return customerMapper.getInfoByUsername(username);
+		return customerMapper.selectByPrimaryKey(username);
 	}
 	
 	public void insert(Customer record) {
@@ -22,14 +27,14 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 	
 	public List<Customer> findAllUsers(){
-		return customerMapper.findAllUsers();
+		return customerMapper.selectByExample(null);
 	}
 	
 	public void updateUser(Customer record) {
-		customerMapper.updateByUsername(record);
+		customerMapper.updateByPrimaryKey(record);
 	}
 	
 	public void deleteUser(String username) {
-		customerMapper.deleteByUsername(username);
+		customerMapper.deleteByPrimaryKey(username);
 	}
 }

@@ -31,7 +31,7 @@ angular.module('myApp').controller('CustomerController', ['$scope', 'CustomerSer
     fetchAllUsers();
  
     function fetchAllUsers(){
-        UserService.fetchAllUsers()
+        CustomerService.fetchAllUsers()
             .then(
             function(d) {
                 self.users = d;
@@ -43,7 +43,7 @@ angular.module('myApp').controller('CustomerController', ['$scope', 'CustomerSer
     }
  
     function createUser(user){
-        UserService.createUser(user)
+        CustomerService.createUser(user)
             .then(
             fetchAllUsers,
             function(errResponse){
@@ -52,8 +52,8 @@ angular.module('myApp').controller('CustomerController', ['$scope', 'CustomerSer
         );
     }
  
-    function updateUser(user, id){
-        UserService.updateUser(user, id)
+    function updateUser(user, username){
+        CustomerService.updateUser(user, username)
             .then(
             fetchAllUsers,
             function(errResponse){
@@ -62,8 +62,8 @@ angular.module('myApp').controller('CustomerController', ['$scope', 'CustomerSer
         );
     }
  
-    function deleteUser(id){
-        UserService.deleteUser(id)
+    function deleteUser(username){
+        CustomerService.deleteUser(username)
             .then(
             fetchAllUsers,
             function(errResponse){
@@ -78,27 +78,25 @@ angular.module('myApp').controller('CustomerController', ['$scope', 'CustomerSer
             createUser(self.user);
         }else{
             updateUser(self.user, self.user.username);
-            console.log('User updated with id ', self.user.username);
+            console.log('User updated with username ', self.user.username);
         }
         reset();
     }
  
-    function edit(id){
-        console.log('id to be edited', id);
+    function edit(username){
         for(var i = 0; i < self.users.length; i++){
-            if(self.users[i].id === id) {
+            if(self.users[i].username === username) {
                 self.user = angular.copy(self.users[i]);
                 break;
             }
         }
     }
  
-    function remove(id){
-        console.log('id to be deleted', id);
-        if(self.user.username === id) {//clean form if the user to be deleted is shown there.
+    function remove(username){
+        if(self.user.username === username) {//clean form if the user to be deleted is shown there.
             reset();
         }
-        deleteUser(id);
+        deleteUser(username);
     }
  
  

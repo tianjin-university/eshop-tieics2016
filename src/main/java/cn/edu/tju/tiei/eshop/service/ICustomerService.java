@@ -2,9 +2,8 @@ package cn.edu.tju.tiei.eshop.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import cn.edu.tju.tiei.eshop.model.Customer;
+import org.apache.ibatis.annotations.Param;
 
 public interface ICustomerService {
 	Customer getInfoByUsername(@Param("username") String username);
