@@ -33,9 +33,13 @@
         </table>
         <table tableName="user_roles">
         </table>
-        <table tableName="order">
+        <table tableName="orders">
         </table>
         <table tableName="order_status">
+        </table>
+        <table tableName="category">
+        </table>
+        <table tableName="payment_method">
         </table>
     </context>
 </generatorConfiguration>
