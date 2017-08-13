@@ -45,5 +45,7 @@
         </table>
         <table tableName="item">
         </table>
+		<table tableName="product">
+        </table>
     </context>
 </generatorConfiguration>
