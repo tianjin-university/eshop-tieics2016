@@ -37,5 +37,6 @@
         </table>
         <table tableName="category">
         </table>
+        <table tableName="send_method"></table>
     </context>
 </generatorConfiguration>
