@@ -31,6 +31,8 @@
         <!-- database tables -->
         <table tableName="rank">
         </table>
+        <table tableName="user_roles">
+        </table>
         <table tableName="orders">
         </table>
         <table tableName="order_status">
