@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.tju.tiei.eshop.dao.SearchProductMapper">
+
+	<resultMap id="SearchProductResultMap" type="cn.edu.tju.tiei.eshop.model.SearchProduct">
+        <id column="id" property="id"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="image" property="image"/>
+        <result column="product_name" property="productName"/>
+        <result column="market_price" property="marketPrice"/>
+        <result column="is_on_sale" property="isOnSale"/>
+        <result column="discount" property="discount"/>
+        <result column="pub_date" property="pubDate"/>
+        <result column="stock_count" property="stockCount"/>
+        <result column="sale_count" property="saleCount"/>
+        <result column="summary" property="summary"/>
+        <result column="detail" property="detail"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="description" property="categoryDescription"/>
+    </resultMap>
+    
+    <select id="searchByKeywords"  resultMap="SearchProductResultMap">
+        	select 	product.id as id,
+        			product.category_id as category_id,
+       				product.image,
+       				product.name as product_name,
+       				product.market_price,
+    	   			product.is_on_sale,
+        			product.discount,
+        			product.pub_date,
+        			product.stock_count,
+        			product.sale_count,
+        			product.summary,
+        			product.detail,
+        			category.name as category_name,
+        			category.description
+        	from 	product
+        			left outer join category on product.category_id = category.id
+        	where	product.name like concat('%', #{productName}, '%')
+        			and summary like concat('%', #{summary}, '%')
+        			and detail like concat('%', #{detail}, '%')
+    	</select>
+    	
+</mapper>

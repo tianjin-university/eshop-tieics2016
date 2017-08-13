@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+         <!--Created by LiTing(2016229068) 2017-08-11 15:20-->
+<mapper namespace="cn.edu.tju.tiei.eshop.dao.ProductByCategoryMapper">
+    <resultMap id="ProductByCategoryResultMap" type="cn.edu.tju.tiei.eshop.model.ProductCategory">
+        <result column="product_id" property="productId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="description" property="categoryDescription"/>
+        <result column="image" property="image"/>
+        <result column="product_name" property="productName"/>
+        <result column="market_price" property="marketPrice"/>
+        <result column="is_on_sale" property="isOnSale"/>
+        <result column="discount" property="discount"/>
+        <result column="pub_date" property="pubDate"/>
+        <result column="stock_count" property="stockCount"/>
+        <result column="sale_count" property="saleCount"/>
+        <result column="summary" property="summary"/>
+        <result column="detail" property="detail"/>
+
+    </resultMap>
+    <select id="getProductByCategory"  resultMap="ProductByCategoryResultMap">
+        select product.id as product_id,
+        product.category_id as category_id,
+        category.name as category_name,
+        category.description,
+        product.image,
+        product.name as product_name,
+        product.market_price,
+        product.is_on_sale,
+        product.discount,
+        product.pub_date,
+        product.stock_count,
+        product.sale_count,
+        product.summary,
+        product.detail
+
+        from product,category
+        where
+        category.name = #{category_name}
+        and category.id=product.category_id
+
+    </select>
+</mapper>
