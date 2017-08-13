@@ -43,11 +43,11 @@ public class LoginRestController {
      */
     @RequestMapping(value = "/login/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Login> get(@PathVariable("id") Integer id) {
-    	Login rank = loginService.findById(id);
-        if (rank == null) {
+    	Login login = loginService.findById(id);
+        if (login == null) {
             return new ResponseEntity<Login>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Login>(rank, HttpStatus.OK);
+        return new ResponseEntity<Login>(login, HttpStatus.OK);
     }
     
     /**
