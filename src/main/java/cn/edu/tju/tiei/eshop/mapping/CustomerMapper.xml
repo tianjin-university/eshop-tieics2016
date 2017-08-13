@@ -227,7 +227,7 @@
       zipcode)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{rankId,jdbcType=TINYINT}, #{score,jdbcType=INTEGER}, 
+      #{answer,jdbcType=VARCHAR},1, 0, 
       #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
       #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{zipcode,jdbcType=CHAR})
